@@ -1,28 +1,40 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+	<div class="App">
+		<aside>
+			<catalogue/>	
+		</aside>
+		<article></article>
+	</div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import catalogue from './components/catalogue'
 export default {
-  name: 'app',
-  components: {
-    HelloWorld
-  }
+	name: 'App',
+	components: {
+		catalogue
+	}
 }
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style lang="scss" scoped>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+.App {
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	> aside {
+		width: 15vw;
+		height: 100vh;
+		border: 2px solid green;
+		overflow-y: auto;
+	}
+	> article {
+		width: 85vw;
+		height: 100vh;
+		border: 2px solid blue;
+		overflow-y: auto;
+	}
 }
 </style>
