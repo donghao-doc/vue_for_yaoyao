@@ -50,6 +50,8 @@ export default {
             switch (num) {
                 case 1:
                     window.console.log('第一章')
+                    // this.$router.push('/chapter1')
+                    window.console.log(this.$router.push)
                     break
                 case 2:
                     window.console.log('第二章')
