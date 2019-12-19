@@ -5,10 +5,10 @@
         <p>授权：只有小可爱才能看</p>
         <h2>目录</h2>
         <ol>
-            <li @click="jumpChapter(1)">安装</li>
-            <li @click="jumpChapter(2)">介绍</li>
-            <li>Vue 实例</li>
-            <li>模板语法</li>
+            <li @click="showChapter(1)">安装</li>
+            <li @click="showChapter(2)">介绍</li>
+            <li @click="showChapter(3)">Vue 实例</li>
+            <li @click="showChapter(4)">模板语法</li>
             <li>计算属性和侦听器</li>
             <li>Class 与 Style 绑定</li>
             <li>条件渲染</li>
@@ -45,18 +45,9 @@
 export default {
     name: 'Catalogue',
     methods: {
-        // 跳转到相应章节
-        jumpChapter(num) {
-            switch (num) {
-                case 1:
-                    window.console.log('第一章')
-                    // this.$router.push('/chapter1')
-                    window.console.log(this.$router.push)
-                    break
-                case 2:
-                    window.console.log('第二章')
-                    break
-            }
+        // 显示相应章节
+        showChapter(num) {
+            this.$root.$emit('showChapter', num)
         }
     }
 }
