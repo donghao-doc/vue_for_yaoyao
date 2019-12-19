@@ -1,6 +1,6 @@
 <template>
     <div>
-        
+        Chapter26
     </div>
 </template>
 
