@@ -3,16 +3,23 @@
 		<aside>
 			<catalogue/>	
 		</aside>
-		<article></article>
+		<article>
+			<chapter1/>
+			<chapter2/>
+		</article>
 	</div>
 </template>
 
 <script>
 import catalogue from './components/catalogue'
+import chapter1 from './components/chapter1'
+import chapter2 from './components/chapter2'
 export default {
 	name: 'App',
 	components: {
-		catalogue
+		catalogue,
+		chapter1,
+		chapter2
 	}
 }
 </script>
@@ -26,6 +33,8 @@ export default {
 	display: flex;
 	> aside {
 		width: 15vw;
+		min-width: 300px;
+		padding: 10px;
 		height: 100vh;
 		border: 2px solid green;
 		overflow-y: auto;
