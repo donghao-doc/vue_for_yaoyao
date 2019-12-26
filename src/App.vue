@@ -497,13 +497,12 @@ export default {
 		min-width: 300px;
 		padding: 10px;
 		height: 100vh;
-		border: 2px solid green;
 		overflow-y: auto;
 	}
 	> article {
-		width: 85vw;
+		flex-grow: 1;
+		min-width: 600px;
 		height: 100vh;
-		border: 2px solid blue;
 		overflow-y: auto;
 	}
 }
