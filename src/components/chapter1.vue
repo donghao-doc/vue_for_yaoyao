@@ -95,15 +95,25 @@ export default {
         }
         > h1 {
             font-size: 2em;
+            margin-bottom: 1em;
         }
         > h2 {
             font-size: 1.5em;
+            margin: 1em 0;
         }
         > h3 {
             font-size: 1.17em;
+            margin: 0.5em 0;
             &::before {
                 content: "# ";
                 color: #42b983;
+            }
+            
+        }
+        > section {
+            > h3 {
+                font-size: 1.17em;
+                margin: 2em 0 0.5em 0;
             }
         }
     }
