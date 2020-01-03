@@ -107,6 +107,7 @@ a {
         > h2 {
             font-size: 1.5em;
             margin: 1em 0;
+            border-bottom: 1px solid #CDC9C9;
         }
         > h3 {
             font-size: 1.17em;
@@ -126,6 +127,8 @@ a {
             background-color: #EBEBEB;
             font-family: "Roboto Mono", Monaco, courier, monospace;
             font-size: 1.1em;
+            margin: 8px 0;
+            border-radius: 4px;
             > code {
                 margin-left: -50px;
             }
