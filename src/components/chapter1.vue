@@ -44,7 +44,7 @@
             </pre>
 
             <h2>命令行工具</h2>
-            <p>Vue 提供了一个官方的 CLI，为单页面应用 (SPA) 快速搭建繁杂的脚手架。更多详情可查阅 Vue CLI 的文档。</p>
+            <p>Vue 提供了一个官方的 CLI，为单页面应用 (SPA) 快速搭建繁杂的脚手架。更多详情可查阅 <a href="https://cli.vuejs.org/">Vue CLI</a> 的文档。</p>
             <p>在现阶段的学习过程中，不推荐直接使用 CLI 工具，你可以使用上面说的 script 标签引入。</p>
 
             <h2>对不同构建版本的解释</h2>
@@ -78,16 +78,23 @@ export default {
 
 <style lang="scss" scoped>
 * { margin: 0; padding: 0; box-sizing: border-box; }
+a {
+    text-decoration: none;
+    color: #42b983;
+    font-weight: 700;
+}
 .Chapter1 {
     width: 100%;
     height: 100%;
-    border: 2px solid green;
     display: flex;
     justify-content: center;
     > article {
+        p {
+            padding-left: 20px;
+        }
         width: 80%;
         height: auto;
-        border: 2px solid red;
+        padding: 20px 0;
         overflow-y: auto;
         overflow-x: hidden;
         > * {
@@ -109,6 +116,19 @@ export default {
                 color: #42b983;
             }
             
+        }
+        > pre {
+            width: 80%;
+            margin: 0 auto;
+            margin-left: 50px;
+            display: flex;
+            justify-content: flex-start;
+            background-color: #EBEBEB;
+            font-family: "Roboto Mono", Monaco, courier, monospace;
+            font-size: 1.1em;
+            > code {
+                margin-left: -50px;
+            }
         }
         > section {
             > h3 {
