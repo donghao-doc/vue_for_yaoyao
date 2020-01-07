@@ -120,6 +120,57 @@
             <p>在控制台里输入：app4.todos.push({ text: '追光者' }) ，你会发现列表后面添加了新的内容。</p>
 
             <h2>处理用户输入</h2>
+            <p>使用 v-on 指令，绑定事件监听器，调用在 Vue 实例中定义的方法：</p>
+            <pre>
+                <code>
+                    &lt;div id="app-5"&gt;
+                        &lt;p&gt; &#123; &#123; message &#125; &#125; &lt;/p&gt;
+                        &lt;button v-on:click="reverseMessage"&gt;反转内容&lt;/button&gt;
+                    &lt;/div&gt;
+                </code>
+            </pre>
+            <pre>
+                <code>
+                    var app5 = new Vue({
+                        el: '#app-5',
+                        data: {
+                            message: '如果说，你是海上的烟火'
+                        },
+                        methods: {
+                            reverseMessage: function () {
+                                this.message = this.message.split('').reverse().join('')
+                            }
+                        }
+                    })
+                </code>
+            </pre>
+            <div class="showContent">
+                {{ message }} <br>
+                <button @click="reverseMessage">反转内容</button>
+            </div>
+            <p>使用 v-model 指令，实现表单输入与应用状态之间的双向绑定：</p>
+            <pre>
+                <code>
+                    &lt;div id="app-6"&gt;
+                        &lt;p&lt; &#123; &#123; message &#125; &#125; &lt;/p&gt;
+                        &lt;input v-model="message"&gt;
+                    &lt;/div&gt;
+                </code>
+            </pre>
+            <pre>
+                <code>
+                    var app6 = new Vue({
+                        el: '#app-6',
+                        data: {
+                            message: '我是浪花的泡沫'
+                        }
+                    })
+                </code>
+            </pre>
+            <div class="showContent">
+                {{ message2 }} <br>
+                <input v-model="message2">
+            </div>
 
             <h2>组件化应用构建</h2>
 
@@ -142,7 +193,18 @@
 
 <script>
 export default {
-    name: "Chapter2"
+    name: "Chapter2",
+    data() {
+        return {
+            message: '如果说，你是海上的烟火',
+            message2: '我是浪花的泡沫'
+        }
+    },
+    methods: {
+        reverseMessage() {
+            this.message = this.message.split('').reverse().join('')
+        }
+    }
 };
 </script>
 
@@ -173,7 +235,7 @@ export default {
             background: #fff;
             padding: 20px;
             border-radius: 4px;
-            border: 1px solid #ebebeb;
+            border: 1px solid #e0dfcc;
             margin-left: 50px;
             margin-bottom: 8px;
         }
