@@ -1,5 +1,5 @@
 <template>
-    <div class="Chapter1">
+    <div class="Chapter2">
         <article>
             <h1>介绍</h1>
 
@@ -172,7 +172,34 @@
                 <input v-model="message2">
             </div>
 
-            <h2>组件化应用构建</h2>
+            <h2>组件化构建应用</h2>
+            <p>什么是组件化构建应用？先想象一下我们小时候搭过的积木......</p>
+            <p>组件化：就是一块一块的积木。</p>
+            <p>构建：搭积木的过程。</p>
+            <p>应用：积木最终搭成的样子（比如机器人、房子、汽车）。</p>
+            <br>
+            <p>放到实际开发中，要如何理解呢？看看下面这张图：</p>
+            <img class="components" src="../assets/components.png" alt="组件示意图">
+            <p>在 Vue 中，一个组件本质上是一个拥有预定义选项的一个 Vue 实例。</p>
+            <p>在 Vue 中注册组件：</p>
+            <pre>
+                <code>
+                    // 定义名为 todo-item 的组件，组件要在 Vue 实例之前定义
+                    Vue.component('todo-item', {
+                        template: '&lt;li&gt;这是一个待办项&lt;/li&gt;'
+                    })
+
+                    var app = new Vue()
+                </code>
+            </pre>
+            <p>使用这个组件：</p>
+            <pre>
+                <code>
+                    &lt;ol&gt;
+                        &lt;todo-item&gt;&lt;/todo-item&gt;  // 相当于 li 标签
+                    &lt;/ol&gt;
+                </code>
+            </pre>
 
             <h2>准备好了吗？</h2>
 
@@ -209,21 +236,19 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.Chapter1 {
+.Chapter2 {
     width: 100%;
-    height: 100%;
+    height: auto;
     display: flex;
     justify-content: center;
+    overflow-y: auto;
+    overflow-x: hidden;
     > article {
         width: 80%;
-        height: auto;
         padding: 20px 0;
-        overflow-y: auto;
-        overflow-x: hidden;
         > * {
             line-height: 1.6em;
         }
-
         > section {
             > h3 {
                 font-size: 1.17em;
@@ -248,6 +273,10 @@ export default {
             left: 0;
             top: 0;
             opacity: 0;
+        }
+        > .components {
+            width: 100%;
+            margin: 8px 0;
         }
     }
 }

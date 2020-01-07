@@ -82,15 +82,15 @@ export default {
 <style lang="scss" scoped>
 .Chapter1 {
     width: 100%;
-    height: 100%;
+    height: auto;
     display: flex;
     justify-content: center;
+    overflow-y: auto;
+    overflow-x: hidden;
     > article {
         width: 80%;
         height: auto;
         padding: 20px 0;
-        overflow-y: auto;
-        overflow-x: hidden;
         > * {
             line-height: 1.6em;
         }
