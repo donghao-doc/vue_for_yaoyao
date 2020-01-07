@@ -8,7 +8,11 @@
             <p>Vue 的核心库只关注视图层。</p>
 
             <h2>声明式渲染</h2>
-            <p>1. Vue.js 的核心是一个允许采用简洁的 <strong>模板语法（文本插值）</strong> 来 <strong>声明式</strong> 地将数据渲染进 DOM 的系统：</p>
+            <p>
+                1. Vue.js 的核心是一个允许采用简洁的
+                <strong>模板语法（文本插值）</strong> 来
+                <strong>声明式</strong> 地将数据渲染进 DOM 的系统：
+            </p>
             <pre>
                 <code>
                     &lt;div id="app"&gt;
@@ -28,7 +32,7 @@
             </pre>
             <div class="showContent">小可爱！</div>
             <p>现在数据（上例中的 data）和 DOM 已经关联起来了，所有东西都是响应式的！</p>
-            <p>可以在控制台中改变 app.message 的值，验证这一点。</p>
+            <p>可以在控制台中改变 app.message 的值来验证这一点。</p>
 
             <p>2. 除了文本插值，我们还可以像这样绑定元素特性：</p>
             <pre>
@@ -51,11 +55,69 @@
                 </code>
             </pre>
             <div class="showContent tipInfo" title="小可爱你不知道我有多爱你！">鼠标悬停查看提示信息！</div>
-            <p>上面的 <strong>v-bind</strong> 被称为指令，指令带有前缀 <strong>v-</strong> ，用来表示它们是 Vue 提供的特殊特性。</p>
+            <p>
+                上面的
+                <strong>v-bind</strong> 被称为指令，指令带有前缀
+                <strong>v-</strong> ，用来表示它们是 Vue 提供的特殊特性。
+            </p>
             <p>现在数据（上例中的 data）和 DOM 已经关联起来了，所有东西都是响应式的！</p>
-            <p>可以在控制台中改变 app2.message 的值，验证这一点。</p>
+            <p>可以在控制台中改变 app2.message 的值来验证这一点。</p>
 
             <h2>条件与循环</h2>
+            <p>控制一个元素是否显示也很简单：</p>
+            <pre>
+                <code>
+                    &lt;div id="app-3"&gt;
+                        &lt;p v-if="seen"&gt;现在你看到我了&lt;/p&gt;
+                    &lt;/div&gt;
+                </code>
+            </pre>
+            <pre>
+                <code>
+                    var app3 = new Vue({
+                        el: '#app-3',
+                        data: {
+                            seen: true
+                        }
+                    })
+                </code>
+            </pre>
+            <p>你只要将 app3.seen 的值改成 false ，就会看到之前显示的消息不见了。</p>
+            <p>这个例子演示了我们不仅可以把数据绑定到 DOM 文本或特性，还可以绑定到 DOM 结构。</p>
+            <p>此外，Vue 也提供一个强大的过渡效果系统，可以在 Vue 插入/更新/移除元素时自动应用过渡效果。</p>
+            <p>还有其他很多指令，每个都有特殊的功能。</p>
+            <p>比如，v-for 指令可以遍历一个数组的数据到 DOM 中：</p>
+            <pre>
+                <code>
+                    &lt;div id="app-4"&gt;
+                        &lt;ol&gt;
+                            &lt;li v-for="todo in todos"&gt;
+                                &#123; &#123; todo.text &#125; &#125;
+                            &lt;/li&gt;
+                        &lt;/ol&gt;
+                    &lt;/div&gt;
+                </code>
+            </pre>
+            <pre>
+                <code>
+                    var app4 = new Vue({
+                        el: '#app-4',
+                        data: {
+                            todos: [
+                                { text: '有的爱像阳光倾落' },
+                                { text: '却依然' },
+                                { text: '相信彩虹' }
+                            ]
+                        }
+                    })
+                </code>
+            </pre>
+            <div class="showContent">
+                1. 有的爱像阳光倾落 <br>
+                2. 却依然 <br>
+                3. 相信彩虹
+            </div>
+            <p>在控制台里输入：app4.todos.push({ text: '追光者' }) ，你会发现列表后面添加了新的内容。</p>
 
             <h2>处理用户输入</h2>
 
@@ -64,7 +126,7 @@
             <h2>准备好了吗？</h2>
 
             <section>
-                <h3></h3>
+                <h3>答案：</h3>
                 <blockquote>
                     <p></p>
                     <p></p>
@@ -80,25 +142,17 @@
 
 <script>
 export default {
-    name: 'Chapter2'
-}
+    name: "Chapter2"
+};
 </script>
 
 <style lang="scss" scoped>
-a {
-    text-decoration: none;
-    color: #42b983;
-    font-weight: 700;
-}
 .Chapter1 {
     width: 100%;
     height: 100%;
     display: flex;
     justify-content: center;
     > article {
-        p {
-            padding-left: 20px;
-        }
         width: 80%;
         height: auto;
         padding: 20px 0;
@@ -107,24 +161,7 @@ a {
         > * {
             line-height: 1.6em;
         }
-        > h1 {
-            font-size: 2em;
-            margin-bottom: 1em;
-        }
-        > h2 {
-            font-size: 1.5em;
-            margin: 1em 0;
-            border-bottom: 1px solid #CDC9C9;
-        }
-        > h3 {
-            font-size: 1.17em;
-            margin: 0.5em 0;
-            &::before {
-                content: "# ";
-                color: #42b983;
-            }
-            
-        }
+
         > section {
             > h3 {
                 font-size: 1.17em;
@@ -136,7 +173,9 @@ a {
             background: #fff;
             padding: 20px;
             border-radius: 4px;
-            border: 1px solid #EBEBEB;
+            border: 1px solid #ebebeb;
+            margin-left: 50px;
+            margin-bottom: 8px;
         }
         > .tipInfo {
             position: relative;

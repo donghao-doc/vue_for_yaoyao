@@ -330,6 +330,7 @@ export default {
     h2 {
         color: #333;
         line-height: 2em;
+        border-bottom: none;
     }
     > h1 {
         font-size: 25px;
