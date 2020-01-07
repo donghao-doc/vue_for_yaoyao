@@ -77,7 +77,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-* { margin: 0; padding: 0; box-sizing: border-box; }
 a {
     text-decoration: none;
     color: #42b983;
@@ -117,21 +116,6 @@ a {
                 color: #42b983;
             }
             
-        }
-        > pre {
-            width: 80%;
-            margin: 0 auto;
-            margin-left: 50px;
-            display: flex;
-            justify-content: flex-start;
-            background-color: #EBEBEB;
-            font-family: "Roboto Mono", Monaco, courier, monospace;
-            font-size: 1.1em;
-            margin: 8px 0;
-            border-radius: 4px;
-            > code {
-                margin-left: -50px;
-            }
         }
         > section {
             > h3 {

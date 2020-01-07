@@ -112,9 +112,6 @@ export default {
 			isChapter32: false,
 		}
 	},
-	mounted() {
-		this.$root.$on('showChapter', this.showChapter)
-	},
 	methods: {
 		// 显示相应章节
 		showChapter(data) {
