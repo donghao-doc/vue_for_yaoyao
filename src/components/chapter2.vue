@@ -200,8 +200,63 @@
                     &lt;/ol&gt;
                 </code>
             </pre>
+            <br>
+            <p>上面这个组件是静态的，即组件中的内容都是固定的。</p>
+            <p>如果能从父作用域传递数据到组件中，让组件中的内容动态变化，是不是更好呢？这样我们就要用到 props 。</p>
+            <pre>
+                <code>
+                    &lt;div id="app-7"&gt;
+                        &lt;ol&gt;
+                            &lt;todo-item 
+                                v-for="item in groceryList" 
+                                v-bind:todo="item" 
+                                v-bind:key="item.id"&gt;
+                            &lt;/todo-item&gt;
+                        &lt;/ol&gt;
+                    &lt;/div&gt;
+                </code>
+            </pre>
+            <pre>
+                <code>
+                    Vue.component('todo-item', {
+                        props: ['todo'],
+                        template: '&lt;li&gt;&#123; &#123; todo.text &#125; &#125;&lt;/li&gt;'
+                    })
 
-            <h2>准备好了吗？</h2>
+                    var app7 = new Vue({
+                        el: '#app-7',
+                        data: {
+                            groceryList: [
+                                { id: 0, text: '你看我' },
+                                { id: 1, text: '多么渺小一个我' },
+                                { id: 2, text: '因为你有梦可做' }
+                            ]
+                        }
+                    })
+                </code>
+            </pre>
+            <div class="showContent">
+                1. 你看我 <br>
+                2. 多么渺小一个我 <br>
+                3. 因为你有梦可做
+            </div>
+            <p>在上面这个例子中，todo-item 作为子组件，可以通过 props 接收从父作用域传来的数据，并在子组件中渲染出来。</p>
+            <p>这意味着，你也可以在其他地方使用 todo-item 这个子组件，子组件中的内容取决于你从父作用域传递的数据。</p>
+            <br>
+            <p>实际工作中，我们会经常将共同的或相似的地方，写成一个组件，以便于在不同的地方使用。这样不仅便于管理我们的代码，也让我们不必写太多重复的代码。</p>
+            <p>下面是一个假想的例子，展示了平常使用组件是什么样子的：</p>
+            <pre>
+                <code>
+                    &lt;div id="app"&gt;
+                        &lt;app-nav&gt;&lt;/app-nav&gt;  // 以这个 nav 为例，我们在另一个 vue 文件中把导航栏写好，然后在父作用域中使用这个组件即可
+                        &lt;app-view&gt;
+                            &lt;app-sidebar&gt;&lt;/app-sidebar&gt;
+                            &lt;app-content&gt;&lt;/app-content&gt;
+                        &lt;/app-view&gt;
+                    &lt;/div&gt;
+                </code>
+            </pre>
+            <p>上面例子中的 &lt;app-nav&gt;&lt;/app-nav&gt; 看起来像是自定义的元素（标签），其实它就是你写的那个组件的名字。</p>
 
             <section>
                 <h3>答案：</h3>
